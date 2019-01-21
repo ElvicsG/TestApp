@@ -390,7 +390,9 @@ public class BaseActivity extends AppCompatActivity {
                         mTempcount++;
                         //GC20171129 在没有处理蓝牙数据时缓存数个输入流用做后续蓝牙数据处理
                         if (mTempcount >= 5 && !handleBDataThread) {
-                            if ( (sendCommand) || (PrefUtils.getString(BaseActivity.this, AppConfig.CLICK_MODE, "click_mode").equals("clicked")) ){
+                            //GC20190121 磁场增益初始化设置
+                            if (sendCommand){
+                            //if ( (sendCommand) || (PrefUtils.getString(BaseActivity.this, AppConfig.CLICK_MODE, "click_mode").equals("clicked")) ){
                                 for (int i = 0; i < mTempLength; i++) {
                                     mTemp2[i] = mTemp[i];
                                 }
@@ -1523,3 +1525,5 @@ public class BaseActivity extends AppCompatActivity {
 //GC20181119 添加相关判断
 //GC20181201 自动定位算法优化
 //GC20181204 信号迭加平均处理
+
+//GC20190121 磁场增益初始化设置
